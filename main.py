@@ -84,20 +84,14 @@ for city, value in values.items():
         newvalue = (value - 0) * (smax - smin) / (max_value - 0) + smin
         color = np.array([0, newvalue, 0])
         color = '#64DD17'
-
         print(city, color)
 
     coord = coords.get(city)
     x, y = m(-coord[1], coord[0])
     print(value)
     m.scatter(x, y, s=value*30, alpha=0.7, c=color, cmap="Set1")
-
-
-for key in values:
-    coord = coords.get(key)
-    x, y = m(-coord[1], coord[0])
     # plt.plot(x, y, 'ok', markersize=5)
-    plt.text(x, y, key, fontsize=10)
+    plt.text(x, y, city, fontsize=10)
 
 # Title/label text
 # plt.text(-170, -58,'Text',ha='left', va='bottom', size=9, color='#555555')
